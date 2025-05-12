@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="index">
+        <div class="input">
+            应收金额： <input type="number">元
+        </div>
+        <div class="input">
+            实收金额： <input type="number">元
+        </div>
+        <div class="input">
+            客户支付金额： <input type="number">元
+        </div>
+
+        <div class="input">
+            <button class="btn" onclick="calc()">计算</button>
+        </div>
+
+        <div class="result">
+        </div>
+    </div>
+    <script>
+        function calc() {
+            var a = document.getElementsByTagName('input')[0].value;
+            var b = document.getElementsByTagName('input')[1].value;
+            var c = document.getElementsByTagName('input')[2].value;
+            var d = document.getElementsByClassName('result')[0];
+            d.innerHTML = "实际到账金额：" + "≈" + (b / a * c).toFixed(2) + "元（保留两位小数）" + "<br>" + "银行扣除手续费：" + "≈" + ((a -
+                    b) / a * c).toFixed(2) +
+                "元（保留两位小数）";
+        }
+    </script>
+
+    <style>
+        .index {
+            width: 80vw;
+            height: 50vh;
+            margin: 0 auto;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+
+        .input {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 100px;
+            height: 30px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</body>
+
+</html>
